@@ -1,9 +1,4 @@
 Section yoneda.
-  (* Requirements: 
-   1. induction tactic
-   2. apply tactic
-   3. unfold tactic
-   4. simpl tactic*)
   
   Inductive id {X}:X->X->Type:=
   | refl (x:X): id x x.

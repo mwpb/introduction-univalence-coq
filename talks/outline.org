@@ -1,0 +1,7 @@
+# Univalence talks outline
+
+* Yoneda requires:
+** induction tactic
+** apply tactic
+** unfold tactic
+** simpl tactic
