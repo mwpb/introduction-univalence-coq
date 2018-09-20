@@ -49,6 +49,6 @@ Section functions.
     destruct l.
     - apply m.
     - apply (cons x (append l m)).
-  Defined.    
+  Defined.
 
 End functions.

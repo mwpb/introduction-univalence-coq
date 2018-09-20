@@ -18,9 +18,9 @@ Section unfoldSimplAndReflexivity.
     unfold roundToPair. simpl. reflexivity.
   Defined.
 
-  Example testAppend {x y z:threeElementSet}:
-    append (cons x nil) (cons y (cons z nil)) =
-    cons x (cons y (cons z nil)).
+  Example testAppend {x y z:threeElementSet} {l:lst}:
+    append (cons x nil) (cons y (cons z l)) =
+    cons x (cons y (cons z l)).
   Proof.
     simpl. reflexivity. Defined.
 
