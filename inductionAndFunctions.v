@@ -1,9 +1,9 @@
 Section induction.
 
   Inductive threeElementSet:=
+  |zero
   |one
-  |two
-  |three.
+  |two.
 
   Inductive pairOrTriple:=
   |pair (x y:threeElementSet)
@@ -21,11 +21,18 @@ Section functions.
     threeElementSet.
   Proof.
     induction X.
-    - apply two.
-    - apply three.
     - apply one.
+    - apply two.
+    - apply zero.
   Defined.
 
+  Definition constantAtZero (X:threeElementSet):
+    threeElementSet.
+  Proof.
+    apply zero.
+  Defined.
+
+  (* Exercise *)
   Definition plusTwoModThree (X:threeElementSet):
     threeElementSet.
   Proof.

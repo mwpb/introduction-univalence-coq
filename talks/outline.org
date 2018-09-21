@@ -5,3 +5,4 @@
 ** apply tactic
 ** unfold tactic
 ** simpl tactic
+* Map is equiv iff contractible fibres because contractible also means non-empty...
