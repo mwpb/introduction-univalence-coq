@@ -1,28 +1,29 @@
 Section univalence.
 
-  Inductive id {X:Type}:X->X->Type:=
-  | refl (x:X): id x x.
+  Inductive Id {X:Type}:X->X->Type:=
+  |refl (x:X): Id x x.
 
   Inductive Preim {X Y:Type} (f:X->Y) (y:Y):=
-  |preim (x:X) (H:id (f(x)) y).
+  |preim (x:X) (H:Id (f(x)) y).
+
+  Inductive IsEq {X Y:Type} (f:X->Y):=
+  |isEq (inj:forall x0 x1:X, Id (f(x0)) (f(x1)) -> Id x0 x1)
+       (surj:forall y:Y, Preim f y).
 
   Inductive Eq (X Y:Type):=
-  | eq (f:X->Y)
-       (inj:forall x0 x1:X, id (f(x0)) (f(x1)) -> id x0 x1)
-       (surj: forall y:Y, Preim f y).
+  |eq (f:X->Y) (H:IsEq f).
   
-  Lemma idToEq (X Y:Type):
-    id X Y -> Eq X Y.
+  Definition idToEq (X Y:Type):
+    Id X Y -> Eq X Y.
   Proof.
     intros. induction X0.
     apply (eq x x (fun x0 => x0)).
-    - intros. apply X.
-    - intros. apply (preim (fun x0 => x0) y y). apply refl.
+    - intros. apply isEq.
+      -- intros. apply X.
+      -- intros. apply (preim (fun x0 => x0) y y). apply refl.
   Defined.
   
   Axiom univalence:
-    forall X Y:Type, isEquiv(idToEq X Y).
-
-  Search existT.
+    forall X Y:Type, IsEq(idToEq X Y).
 
 End univalence.
