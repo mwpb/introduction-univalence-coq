@@ -2,7 +2,7 @@ Require Import Coq.Init.Datatypes.
 Require Import Coq.Program.Tactics.
 Import Coq.Init.Notations.
 Notation "A -> B" := (forall (_ : A), B) : type_scope.
-Require Import univalence.
+Require Import univalenceSolutions.
 
 Section prodStrictlyAssoc.
 Search prod.
