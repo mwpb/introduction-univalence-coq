@@ -1,7 +1,6 @@
 Require Coq.Init.Datatypes.
 Import Coq.Init.Notations.
 Notation "A -> B" := (forall (_ : A), B) : type_scope.
-Require Import Coq.Program.Tactics.
 Require Import inductionAndFunctions.
 
 Section lemmasExamples.
@@ -47,14 +46,18 @@ Section lemmasExercises.
       fourModThree (constantAtZero4 x) =
       constantAtZero (fourModThree x).
   Proof.
-  (* your proof here *)
+  intros. unfold fourModThree. unfold constantAtZero, constantAtZero4. simpl.
+  reflexivity.
   Defined.
 
   Definition doubleModThreeIdempotent:
     forall x:ThreeElementSet,
       doubleModThree (doubleModThree x) = x.
   Proof.
-  (* your proof here *)
+  intros. induction x.
+  - unfold doubleModThree. simpl. reflexivity.
+  - unfold doubleModThree. simpl. reflexivity.
+  - unfold doubleModThree. simpl. reflexivity.
   Defined.
 
   Definition lengthDoubleCons:
@@ -62,7 +65,9 @@ Section lemmasExercises.
     forall l:Lst,
       length (cons y (cons x l)) = succ (succ (length l)).
   Proof.
-  (* your proof here *)
+  intros. induction l.
+  - unfold length. reflexivity.
+  - simpl. reflexivity.
   Defined.
 
 Section lemmasExercises.

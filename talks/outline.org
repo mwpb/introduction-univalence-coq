@@ -6,3 +6,7 @@
 ** unfold tactic
 ** simpl tactic
 * Map is equiv iff contractible fibres because contractible also means non-empty...
+* Setup for CoqIde
+** Tools -> Coqtop arguments -> add in -indices-matter and -nois
+** Auto indent
+** Auto completion

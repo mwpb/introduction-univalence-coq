@@ -29,7 +29,11 @@ Section univalence.
   Definition idToEq (X Y:Type):
     Id X Y -> Eq X Y.
   Proof.
-    (* your proof here *)
+    intro. induction X0.
+    apply (eq x x (id x)).
+    apply isEq.
+    - intros. apply X.
+    - intros. apply (preim (id x) y y). apply refl.
   Defined.
   
   Axiom univalence:

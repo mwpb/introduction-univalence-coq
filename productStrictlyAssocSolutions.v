@@ -17,13 +17,19 @@ Search prod.
   Definition associatorIsEq {X Y Z:Type}:
     IsEq (associator X Y Z).
   Proof.
-    (* your proof here: requires inversion tactic *)
+    apply isEq.
+    - intros. inversion X0. rewrite H in H0. induction x0, x1.
+    induction a, p. inversion H0. apply refl.
+    - intros. induction y. induction b. apply (preim (associator X Y Z) (a, (a0,b)) ((a, a0),b)).
+      simpl. apply refl.
   Defined.
   
   Lemma productStrictlyAssoc {X Y Z:Type}:
     Id (prod (prod X Y) Z) (prod X (prod Y Z)).
   Proof.
-    (* your proof here *)
+    apply univalence.
+    apply (eq (prod (prod X Y) Z) (prod X (prod Y Z)) (associator X Y Z)).
+    apply associatorIsEq.
   Defined.
 
 End prodStrictlyAssoc.

@@ -82,25 +82,34 @@ Section functionExercises.
   Definition constantAtZero4 (x:FourElementSet):
     FourElementSet.
   Proof.
-    (* x |-> zero4 *)
+    apply zero4.
   Defined.
 
   Definition doubleModThree (x:ThreeElementSet):
     ThreeElementSet.
   Proof.
-    (* x |-> 2x mod 3 *)
+    induction x.
+    - apply zero.
+    - apply two.
+    - apply one.
   Defined.
 
   Definition fourModThree (x:FourElementSet):
     ThreeElementSet.
   Proof.
-    (*x|->x mod 3*)
+    induction x.
+    - apply zero.
+    - apply one.
+    - apply two.
+    - apply zero.
   Defined.
 
   Fixpoint length (l:Lst):
     Nat.
   Proof.
-    (* returns the length of l *)
+    destruct l.
+    - apply base.
+    - apply (succ (length l)).
   Defined.
 
 End functionExercises.
