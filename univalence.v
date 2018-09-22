@@ -1,7 +1,16 @@
+Set Printing Universes.
 Section univalence.
 
   Inductive Id {X:Type}:X->X->Type:=
   |refl (x:X): Id x x.
+
+  Check Id.
+
+  Definition id (X:Type) (x:X):
+    X.
+  Proof.
+    apply x.
+  Defined.
 
   Inductive Preim {X Y:Type} (f:X->Y) (y:Y):=
   |preim (x:X) (H:Id (f(x)) y).
@@ -16,11 +25,11 @@ Section univalence.
   Definition idToEq (X Y:Type):
     Id X Y -> Eq X Y.
   Proof.
-    intros. induction X0.
-    apply (eq x x (fun x0 => x0)).
-    - intros. apply isEq.
-      -- intros. apply X.
-      -- intros. apply (preim (fun x0 => x0) y y). apply refl.
+    intro. induction X0.
+    apply (eq x x (id x)).
+    apply isEq.
+    - intros. apply X.
+    - intros. apply (preim (id x) y y). apply refl.
   Defined.
   
   Axiom univalence:

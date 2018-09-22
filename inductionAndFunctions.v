@@ -1,24 +1,24 @@
-Section induction.
+Section inductionExamples.
 
-  Inductive threeElementSet:=
+  Inductive ThreeElementSet:=
   |zero
   |one
   |two.
 
-  Inductive pairOrTriple:=
-  |pair (x y:threeElementSet)
-  |triple (x y z:threeElementSet).
+  Inductive PairOrTriple:=
+  |pair (x y:ThreeElementSet)
+  |triple (x y z:ThreeElementSet).
 
-  Inductive lst:=
+  Inductive Lst:=
   |nil
-  |cons (x:threeElementSet) (l:lst).
+  |cons (x:ThreeElementSet) (l:Lst).
 
-End induction.
+End inductionExamples.
 
-Section functions.
+Section functionExamples.
 
-  Definition plusOneModThree (X:threeElementSet):
-    threeElementSet.
+  Definition plusOneModThree (X:ThreeElementSet):
+    ThreeElementSet.
   Proof.
     induction X.
     - apply one.
@@ -26,36 +26,73 @@ Section functions.
     - apply zero.
   Defined.
 
-  Definition constantAtZero (X:threeElementSet):
-    threeElementSet.
+  Definition constantAtZero (X:ThreeElementSet):
+    ThreeElementSet.
   Proof.
     apply zero.
   Defined.
 
-  (* Exercise *)
-  Definition plusTwoModThree (X:threeElementSet):
-    threeElementSet.
+  Definition plusTwoModThree (X:ThreeElementSet):
+    ThreeElementSet.
   Proof.
     induction X.
-    - apply three.
-    - apply one.
     - apply two.
+    - apply zero.
+    - apply one.
   Defined.
 
-  Definition roundToPair (p:pairOrTriple):
-    pairOrTriple.
+  Definition roundToPair (p:PairOrTriple):
+    PairOrTriple.
   Proof.
     induction p.
     - apply (pair x y).
     - apply (pair x y).
   Defined.
 
-  Fixpoint append (l m:lst):
-    lst.
+  Fixpoint append (l m:Lst):
+    Lst.
   Proof.
     destruct l.
     - apply m.
     - apply (cons x (append l m)).
   Defined.
 
-End functions.
+End functionExamples.
+
+Section inductionExercises.
+
+  Inductive FourElementSet:=
+  | (* define the equivalent of a four element set *).
+
+  Inductive Nat:=
+  | (* define the natural numbers inductively *).
+
+End inductionExercises.
+
+Section functionExercises.
+
+  Definition constantAtZero (x:FourElementSet):
+    FourElementSet.
+  Proof.
+    (* write the function that takes x|-> zero *)
+  Defined.
+
+  Definition doubleModThree (x:ThreeElementSet):
+    ThreeElementSet.
+  Proof.
+    (* write the function that takes x|->2x mod 3 *)
+  Defined.
+
+  Definition fourModThree (x:FourElementSet):
+    ThreeElementSet.
+  Proof.
+    (* write the function that takes x |-> x mod 3 *)
+  Defined.
+
+  Fixpoint length (l:Lst):
+    Nat.
+  Proof.
+    (* write a function that returns the length of l*)
+  Defined.
+
+End functionExercises.
