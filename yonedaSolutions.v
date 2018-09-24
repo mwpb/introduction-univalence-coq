@@ -39,7 +39,8 @@ Section yoneda.
     id (ev_id (extend_nat z)) z.
   Proof.
     unfold ev_id. unfold extend_nat. unfold arr.
-    simpl. apply refl. Qed.
+    simpl. apply refl.
+    Defined.
   
   Definition ev_then_nat {X:Type}
              (A: pre X) (x:X) (n: natural (id x) A):

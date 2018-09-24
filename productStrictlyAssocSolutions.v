@@ -18,8 +18,8 @@ Search prod.
     IsEq (associator X Y Z).
   Proof.
     apply isEq.
-    - intros. inversion X0. rewrite H in H0. induction x0, x1.
-    induction a, p. inversion H0. apply refl.
+    - intros. inversion X0. induction x0, x1.
+    induction a, p. inversion H1. apply refl.
     - intros. induction y. induction b. apply (preim (associator X Y Z) (a, (a0,b)) ((a, a0),b)).
       simpl. apply refl.
   Defined.
