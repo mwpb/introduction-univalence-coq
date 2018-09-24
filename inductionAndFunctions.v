@@ -8,10 +8,14 @@ Section inductionExamples.
   |zero
   |one
   |two.
+  
+  Compute zero.
 
   Inductive PairOrTriple:=
   |pair (x y:ThreeElementSet)
   |triple (x y z:ThreeElementSet).
+  
+  Compute pair.
 
   Inductive Lst:=
   |nil
