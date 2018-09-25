@@ -16,23 +16,21 @@ Section univalence.
     apply x.
   Defined.
 
-  Inductive Preim {X Y:Type} (f:X->Y) (y:Y):=
-  |preim (x:X) (H:Id (f(x)) y).
-
-  Inductive IsEq {X Y:Type} (f:X->Y):=
-  |isEq (inj:forall x0 x1:X, Id (f(x0)) (f(x1)) -> Id x0 x1)
-       (surj:forall y:Y, Preim f y).
+  Inductive IsEquiv {X Y:Type} (f:X->Y):=
+  |isEquiv (g h:Y->X)
+       (H1: forall x:X, Id (g(f(x))) x)
+       (H2:forall y:Y, Id (f(h(y))) y).
 
   Inductive Eq (X Y:Type):=
-  |eq (f:X->Y) (H:IsEq f).
+  |eq (f:X->Y) (H:IsEquiv f).
   
-  Definition idToEq (X Y:Type):
+  Definition idToEquiv (X Y:Type):
     Id X Y -> Eq X Y.
   Proof.
-    (* your proof here *)
+    (* insert your proof here *)
   Defined.
   
   Axiom univalence:
-    forall X Y:Type, IsEq(idToEq X Y).
+    forall X Y:Type, IsEquiv(idToEquiv X Y).
 
 End univalence.
