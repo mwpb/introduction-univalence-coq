@@ -30,3 +30,6 @@ on any files that Coq has trouble loading.
 ## Acknowledgements
 
 * [Coq](https://coq.inria.fr/) - Proof Assistant
+* The HoTT book - available [here](https://homotopytypetheory.org/book/)
+* [Using Yoneda rather than J to present the identity type](http://www.cs.bham.ac.uk/~mhe/yoneda/yoneda.html) - Martin Escardo
+* [A self-contained, brief and complete formulation of Voevodsky's univalence Axiom](http://www.cs.bham.ac.uk/~mhe/agda-new/UnivalenceFromScratch.html) - Martin Escardo
