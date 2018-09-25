@@ -25,8 +25,6 @@ Compile > Compile buffer
 
 on any files that Coq has trouble loading.
 
-## Deployment 
-
 ## Acknowledgements
 
 * [Coq](https://coq.inria.fr/) - Proof Assistant
