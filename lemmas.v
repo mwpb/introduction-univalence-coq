@@ -4,6 +4,7 @@ Notation "A -> B" := (forall (_ : A), B) : type_scope.
 Require Import Coq.Program.Tactics.
 Require Import inductionAndFunctionsSolutions.
 
+Print LoadPath.
 Section lemmasExamples.
 
   Definition twicePlusOneIsPlusTwo:
