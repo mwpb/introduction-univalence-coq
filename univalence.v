@@ -22,7 +22,7 @@ Section univalence.
        (H2:forall y:Y, Id (f(h(y))) y).
 
   Inductive Equiv (X Y:Type):=
-  |eq (f:X->Y) (H:IsEquiv f).
+  |equiv (f:X->Y) (H:IsEquiv f).
   
   Definition idToEquiv (X Y:Type):
     Id X Y -> Equiv X Y.
