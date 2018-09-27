@@ -32,7 +32,7 @@ If not please try the solution suggested [here](https://stackoverflow.com/questi
 1. [inductionAndFunctions.v](inductionAndFunctions.v) introduces the Inductive and Definition keywords as well as the induction, destruct and apply tactics.
 2. [lemmas.v](lemmas.v) introduces proofs as programmes and the simpl and rewrite tactics.
 3. [univalence.v](univalence.v) formulates the univalence axiom.
-4. [productStrinctlyAssoc.v](productStrictlyAssoc.v) uses the univalence axiom to prove that the product type construction is strictly associative in the appropriate sense.
+4. [productStrictlyAssoc.v](productStrictlyAssoc.v) uses the univalence axiom to prove that the product type construction is strictly associative in the appropriate sense.
 
 
 ## Acknowledgements
