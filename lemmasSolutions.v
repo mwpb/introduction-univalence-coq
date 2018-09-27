@@ -10,25 +10,25 @@ Section lemmasExamples.
     forall x:ThreeElementSet,
       plusOneModThree (plusOneModThree x) = plusTwoModThree x.
   Proof.
-    unfold plusTwoModThree. unfold plusOneModThree.
-    induction x.
-    - simpl. reflexivity.
-    - simpl. reflexivity.
-    - simpl. reflexivity.
+  intros. induction x.
+  - simpl. reflexivity.
+  - simpl. reflexivity.
+  - simpl. reflexivity.
   Defined.
 
   Definition thirdLostAfterRounding:
     forall x y z:ThreeElementSet,
       roundToPair (triple x y z) = pair x y.
   Proof.
-    unfold roundToPair. simpl. reflexivity.
+  intros. simpl. reflexivity.
   Defined.
 
   Definition testAppend {x y z:ThreeElementSet} {l:Lst}:
     append (cons x nil) (cons y (cons z l)) =
     cons x (cons y (cons z l)).
   Proof.
-    simpl. reflexivity. Defined.
+  simpl. reflexivity. 
+  Defined.
 
   Definition appendAssoc (l m n:Lst):
     append (append l m) n = append l (append m n).
@@ -47,8 +47,7 @@ Section lemmasExercises.
       fourModThree (constantAtZero4 x) =
       constantAtZero (fourModThree x).
   Proof.
-  intros. unfold fourModThree. unfold constantAtZero, constantAtZero4. simpl.
-  reflexivity.
+  intros. simpl. reflexivity.
   Defined.
 
   Definition doubleModThreeIdempotent:
@@ -56,9 +55,9 @@ Section lemmasExercises.
       doubleModThree (doubleModThree x) = x.
   Proof.
   intros. induction x.
-  - unfold doubleModThree. simpl. reflexivity.
-  - unfold doubleModThree. simpl. reflexivity.
-  - unfold doubleModThree. simpl. reflexivity.
+  - simpl. reflexivity.
+  - simpl. reflexivity.
+  - simpl. reflexivity.
   Defined.
 
   Definition lengthDoubleCons:
@@ -67,7 +66,7 @@ Section lemmasExercises.
       length (cons y (cons x l)) = succ (succ (length l)).
   Proof.
   intros. induction l.
-  - unfold length. reflexivity.
+  - simpl. reflexivity.
   - simpl. reflexivity.
   Defined.
 
