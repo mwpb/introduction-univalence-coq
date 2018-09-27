@@ -23,7 +23,9 @@ For instance in CoqIde (which is automatically installed alongside Coq) you may 
 Compile > Compile buffer
 ```
 
-on any files that Coq has trouble loading.
+on any files that Coq has trouble loading. 
+Hopefully the addition of a line in [\_CoqProject](_CoqProject) has taken care of LoadPath issues. 
+If not please try the solution suggested [here](https://stackoverflow.com/questions/16202666/coqide-cant-load-modules-from-same-folder).
 
 ## Intended order of files
 
