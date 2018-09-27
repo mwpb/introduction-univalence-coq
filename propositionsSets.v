@@ -45,7 +45,8 @@ Section propositionsSets.
   Definition IsEquivIsProp {X Y:Type} (f:X->Y):
     IsProp (IsEquiv f).
   Proof.
-    apply isProp. intros. induction x. induction y.
-    apply funcExt in H1.
+    apply isProp. induction x. intro. apply funcExt.
+
+https://homotopytypetheory.org/2012/06/01/hequiv-equiv-take-3/
     
     

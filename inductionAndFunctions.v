@@ -65,6 +65,8 @@ Section functionExamples.
     - apply (cons x (append l m)).
   Defined.
 
+  Print append.
+
 End functionExamples.
 
 Section inductionExercises.

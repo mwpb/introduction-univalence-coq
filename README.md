@@ -25,6 +25,14 @@ Compile > Compile buffer
 
 on any files that Coq has trouble loading.
 
+## Intended order of files
+
+1. [inductionAndFunctions.v](inductionAndFunctions.v)
+2. [lemmas.v](lemmas.v)
+3. [univalence.v](univalence.v)
+4. [productStrinctlyAssoc.v](productStrictlyAssoc.v)
+
+
 ## Acknowledgements
 
 * [Coq](https://coq.inria.fr/) - Proof Assistant
