@@ -69,5 +69,21 @@ Section lemmasExercises.
   - simpl. reflexivity.
   - simpl. reflexivity.
   Defined.
+  
+  Definition appendHigherAssoc (l1 l2 l3 l4:Lst):
+  append l1 (append l2 (append l3 l4)) = 
+  append (append(append l1 l2) l3) l4.
+  Proof.
+  rewrite appendAssoc. rewrite appendAssoc. reflexivity.
+  Defined.
+  
+  Definition lengthLemma (l1 l2:Lst) (x:ThreeElementSet):
+  length (append l1 (append (cons x nil) l2)) =
+  succ ( length (append l1 l2)).
+  Proof.
+  simpl. induction l1.
+  - simpl. reflexivity.
+  - simpl. rewrite IHl1. reflexivity.
+  Defined.
 
 Section lemmasExercises.

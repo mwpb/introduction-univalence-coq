@@ -10,14 +10,19 @@ Search prod.
   Definition associator (X Y Z:Type):
     (prod (prod X Y) Z) -> (prod X (prod Y Z)).
   Proof.
-    intro. induction X0. induction a.
-    apply (a,(b0,b)).
+    (* define the function ((x, y), z) |-> (x, (y, z)) *)
   Defined.
 
-  Definition associatorIsEq {X Y Z:Type}:
-    IsEq (associator X Y Z).
+  Definition associatorInverse (X Y Z:Type):
+    (prod X (prod Y Z)) -> (prod (prod X Y) Z).
   Proof.
-    (* your proof here: requires inversion tactic *)
+    (* define the function (x, (y, z)) |-> ((x, y), z)*)
+  Defined.
+
+  Definition associatorIsEquiv {X Y Z:Type}:
+    IsEquiv (associator X Y Z).
+  Proof.
+    (* your proof here *)
   Defined.
   
   Lemma productStrictlyAssoc {X Y Z:Type}:

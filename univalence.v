@@ -13,7 +13,7 @@ Section univalence.
   Definition id (X:Type) (x:X):
     X.
   Proof.
-    apply x.
+    (* define the identity function x|->x*)
   Defined.
 
   Inductive IsEquiv {X Y:Type} (f:X->Y):=
@@ -21,13 +21,13 @@ Section univalence.
        (H1: forall x:X, Id (g(f(x))) x)
        (H2:forall y:Y, Id (f(h(y))) y).
 
-  Inductive Eq (X Y:Type):=
+  Inductive Equiv (X Y:Type):=
   |eq (f:X->Y) (H:IsEquiv f).
   
   Definition idToEquiv (X Y:Type):
-    Id X Y -> Eq X Y.
+    Id X Y -> Equiv X Y.
   Proof.
-    (* insert your proof here *)
+  (* your proof here *)
   Defined.
   
   Axiom univalence:
