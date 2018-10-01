@@ -33,7 +33,7 @@ Search prod.
     Id (prod (prod X Y) Z) (prod X (prod Y Z)).
   Proof.
     apply univalence.
-    apply (eq (prod (prod X Y) Z) (prod X (prod Y Z)) (associator X Y Z)).
+    apply (equiv (prod (prod X Y) Z) (prod X (prod Y Z)) (associator X Y Z)).
     apply associatorIsEquiv.
   Defined.
 
