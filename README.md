@@ -33,6 +33,8 @@ If not please try the solution suggested [here](https://stackoverflow.com/questi
 2. [lemmas.v](lemmas.v) introduces proofs as programmes and the simpl and rewrite tactics.
 3. [univalence.v](univalence.v) formulates the univalence axiom.
 4. [productStrictlyAssoc.v](productStrictlyAssoc.v) uses the univalence axiom to prove that the product type construction is strictly associative in the appropriate sense.
+5. [propositionsSets.v](propositionsSets.v) to demonstrate specialize.
+6. [equivalences.v](equivalences.v) to use specialize.
 
 
 ## Acknowledgements

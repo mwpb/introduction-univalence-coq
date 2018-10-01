@@ -18,7 +18,8 @@ Section propositionsSets.
   Definition dependentProp {X:Type} {B:X->Type}:
   (forall x:X, IsProp (B x)) -> IsProp (forall x:X, B x).
   Proof.
-  (* your proof here -- requires specialize? *)
+  intro. apply isProp. intros p q. apply funcExt. intro.
+  specialize X0 with x. induction X0. induction (H (p x) (q x)). apply refl.
   Defined.
   
   Inductive IsContractible (X:Type) :=
