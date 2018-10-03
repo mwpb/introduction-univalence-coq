@@ -86,4 +86,4 @@ Section lemmasExercises.
   - simpl. rewrite IHl1. reflexivity.
   Defined.
 
-Section lemmasExercises.
+End lemmasExercises.

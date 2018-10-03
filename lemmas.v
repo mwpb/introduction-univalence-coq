@@ -4,7 +4,6 @@ Notation "A -> B" := (forall (_ : A), B) : type_scope.
 Require Import Coq.Program.Tactics.
 Require Import inductionAndFunctionsSolutions.
 
-Print LoadPath.
 Section lemmasExamples.
 
   Definition twicePlusOneIsPlusTwo:
@@ -36,7 +35,7 @@ Section lemmasExamples.
   Proof.
     induction l.
     - simpl. reflexivity.
-    - simpl. rewrite IHl. reflexivity.
+    - simpl. rewrite <- IHl. reflexivity.
   Defined.
 
 End lemmasExamples.
@@ -48,14 +47,17 @@ Section lemmasExercises.
       fourModThree (constantAtZero4 x) =
       constantAtZero (fourModThree x).
   Proof.
-  (* your proof here *)
+    intros. simpl. reflexivity.
   Defined.
 
   Definition doubleModThreeIdempotent:
     forall x:ThreeElementSet,
       doubleModThree (doubleModThree x) = x.
   Proof.
-  (* your proof here *)
+    intros. induction x.
+    - simpl. reflexivity.
+    - reflexivity.
+    - reflexivity.
   Defined.
 
   Definition lengthDoubleCons:
@@ -63,20 +65,30 @@ Section lemmasExercises.
     forall l:Lst,
       length (cons y (cons x l)) = succ (succ (length l)).
   Proof.
-  (* your proof here *)
+    intros. induction l.
+    - simpl. reflexivity.
+    - reflexivity.
   Defined.
   
   Definition appendHigherAssoc (l1 l2 l3 l4:Lst):
   append l1 (append l2 (append l3 l4)) = 
   append (append(append l1 l2) l3) l4.
   Proof.
-  (* your proof here *)
+    intros.
+    rewrite <- (appendAssoc l2 l3 l4).
+    rewrite <- (appendAssoc _ _ _).
+    rewrite <- (appendAssoc _ _ _).
+    reflexivity.
   Defined.
   
   Definition lengthLemma (l1 l2:Lst) (x:ThreeElementSet):
   length (append l1 (append (cons x nil) l2)) =
   succ ( length (append l1 l2)).
   Proof.
+    simpl.
+    induction l1.
+    - simpl. reflexivity.
+    - simpl. rewrite IHl1. reflexivity.
   (* your proof here *)
   Defined.
 

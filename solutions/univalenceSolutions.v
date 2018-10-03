@@ -8,8 +8,6 @@ Section univalence.
   Inductive Id {X:Type}:X->X->Type:=
   |refl (x:X): Id x x.
 
-  Check Id.
-
   Definition id (X:Type) (x:X):
     X.
   Proof.

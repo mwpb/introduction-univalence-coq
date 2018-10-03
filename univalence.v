@@ -19,7 +19,7 @@ Section univalence.
   Inductive IsEquiv {X Y:Type} (f:X->Y):=
   |isEquiv (g h:Y->X)
        (H1: forall x:X, Id (g(f(x))) x)
-       (H2:forall y:Y, Id (f(h(y))) y).
+       (H2: forall y:Y, Id (f(h(y))) y).
 
   Inductive Equiv (X Y:Type):=
   |equiv (f:X->Y) (H:IsEquiv f).
