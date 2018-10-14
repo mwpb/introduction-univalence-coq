@@ -3,8 +3,6 @@ Require Import Coq.Program.Tactics.
 Import Coq.Init.Notations.
 Notation "A -> B" := (forall (_ : A), B) : type_scope.
 
-Require Import univalenceSolutions.
-
 Section propositionsSets.
 
   Axiom funcExt:

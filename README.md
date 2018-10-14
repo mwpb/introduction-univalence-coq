@@ -31,10 +31,11 @@ If not please try the solution suggested [here](https://stackoverflow.com/questi
 
 1. [inductionAndFunctions.v](inductionAndFunctions.v) introduces the Inductive and Definition keywords as well as the induction, destruct and apply tactics.
 2. [lemmas.v](lemmas.v) introduces proofs as programmes and the simpl and rewrite tactics.
-3. [univalence.v](univalence.v) formulates the univalence axiom.
+3. [propositionsSets.v](propositionsSets.v) introduces the basic ideas to analyse equivalences.
+4. [equivalencesDefinitions.v](equivalencesDefinitions.v) introduces the various different types of equivalence.
+4. [equivalences.v](equivalences.v) proves that the type of contractible maps is a proposition; introduces assert.
+3. [univalence.v](univalence.v) formulates the univalence axiom using contractible maps.
 4. [productStrictlyAssoc.v](productStrictlyAssoc.v) uses the univalence axiom to prove that the product type construction is strictly associative in the appropriate sense.
-5. [propositionsSets.v](propositionsSets.v) to demonstrate specialize.
-6. [equivalences.v](equivalences.v) to use specialize.
 
 
 ## Acknowledgements
