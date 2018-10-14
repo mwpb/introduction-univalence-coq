@@ -34,23 +34,3 @@ Inductive IsContractibleMap {X Y:Type} (f:X->Y):=
   (H:forall y:Y, IsContractible(Fibre f y)).
 
 End equivalencesDefinitions.
-
-(*
-
-Definition naturality {X Y:Type} {x0 x1:X} 
-  (f g:X->Y) (H:forall x:X, Id (f(x)) (g(x)))
-  (p:Id x0 x1):
-  forall x:X, Id (comp (H x0) (appl g p)) (comp (appl f p) (H x1)).
-Proof.
-intro. simpl. induction p. simpl.
-induction (H x0). simpl. apply refl.
-Defined. 
-
-Definition happl {X:Type} {x0 x1:X} (f:X->Type) (H:Id x0 x1):
-Id (f(x0)) (f(x1)).
-Proof.
-induction H. apply refl.
-Defined.
-
-
-*)
