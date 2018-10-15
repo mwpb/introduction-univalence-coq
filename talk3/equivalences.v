@@ -46,7 +46,8 @@ Defined.
 Definition isContractibleMapIsProp {X Y:Type} (f:X->Y):
   IsProp(IsContractibleMap f).
 Proof.
-(* your proof here *)
+(* your proof here - one way is to assert a 
+  statement beginning forall y:Y, ___ *)
 Defined.
 
 End contractibleMaps.
