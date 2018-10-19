@@ -1,4 +1,4 @@
-Require Import category.
+Require Import categorySolutions.
 Section products.
   
   Record product {C:caty} (a0 a1:obj C):=

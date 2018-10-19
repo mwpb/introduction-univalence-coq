@@ -51,6 +51,8 @@ Definition isContractibleMapIsProp {X Y:Type} (f:X->Y):
   IsProp(IsContractibleMap f).
 Proof.
 apply isProp. intros. induction x0, x1.
+
+
 assert (forall y:Y, IsProp(IsContractible (Fibre f y))).
 - intro. apply isContractibleIsProp.
 - assert (Id H0 H).

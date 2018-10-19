@@ -2,35 +2,21 @@ Require Coq.Init.Datatypes.
 Import Coq.Init.Notations.
 Notation "A -> B" := (forall (_ : A), B) : type_scope.
 Set Printing Universes.
+Require Import propositionsSets.
+Require Import equivalencesDefinitions.
 
 Section univalence.
 
-  Inductive Id {X:Type}:X->X->Type:=
-  |refl (x:X): Id x x.
+Inductive IsEquiv (X Y:Type):=
+|isEquiv (f:X->Y) (H:IsContractibleMap f).
 
-  Check Id.
+Definition idToEquiv (X Y:Type):
+  Id X Y -> IsEquiv X Y.
+Proof.
+(* your proof here *)
+Defined.
 
-  Definition id (X:Type) (x:X):
-    X.
-  Proof.
-    (* define the identity function x|->x*)
-  Defined.
-
-  Inductive IsEquiv {X Y:Type} (f:X->Y):=
-  |isEquiv (g h:Y->X)
-       (H1: forall x:X, Id (g(f(x))) x)
-       (H2: forall y:Y, Id (f(h(y))) y).
-
-  Inductive Equiv (X Y:Type):=
-  |equiv (f:X->Y) (H:IsEquiv f).
-  
-  Definition idToEquiv (X Y:Type):
-    Id X Y -> Equiv X Y.
-  Proof.
-  (* your proof here *)
-  Defined.
-  
-  Axiom univalence:
-    forall X Y:Type, IsEquiv(idToEquiv X Y).
+Axiom univalence:
+  forall X Y:Type, IsContractibleMap(idToEquiv X Y).
 
 End univalence.

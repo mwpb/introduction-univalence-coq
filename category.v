@@ -1,4 +1,4 @@
-Require Import univalence.
+Require Import univalenceSolutions.
 
 Section category.
 
@@ -103,7 +103,7 @@ Section category.
 
   Axiom caty_univalence:
     forall {C:caty} (a b:obj C),
-      IsEq(idToIso a b).
+      IsEquiv(idToIso a b).
 
 End category.
 
