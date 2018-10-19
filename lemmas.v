@@ -2,7 +2,7 @@ Require Coq.Init.Datatypes.
 Import Coq.Init.Notations.
 Notation "A -> B" := (forall (_ : A), B) : type_scope.
 Require Import Coq.Program.Tactics.
-Require Import inductionAndFunctionsSolutions.
+Require Import inductionAndFunctions.
 
 Section lemmasExamples.
 

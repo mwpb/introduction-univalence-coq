@@ -14,7 +14,7 @@ Definition idToEquiv (X Y:Type):
   Id X Y -> IsEquiv X Y.
 Proof.
 (* your proof here *)
-Defined.
+Defined. 
 
 Axiom univalence:
   forall X Y:Type, IsContractibleMap(idToEquiv X Y).
