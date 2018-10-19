@@ -47,17 +47,14 @@ Section lemmasExercises.
       fourModThree (constantAtZero4 x) =
       constantAtZero (fourModThree x).
   Proof.
-  intros. simpl. reflexivity.
+  (* your proof here *)
   Defined.
 
   Definition doubleModThreeIdempotent:
     forall x:ThreeElementSet,
       doubleModThree (doubleModThree x) = x.
   Proof.
-  intros. induction x.
-  - simpl. reflexivity.
-  - simpl. reflexivity.
-  - simpl. reflexivity.
+  (* your proof here *)
   Defined.
 
   Definition lengthDoubleCons:
@@ -65,25 +62,21 @@ Section lemmasExercises.
     forall l:Lst,
       length (cons y (cons x l)) = succ (succ (length l)).
   Proof.
-  intros. induction l.
-  - simpl. reflexivity.
-  - simpl. reflexivity.
+  (* your proof here *)
   Defined.
   
   Definition appendHigherAssoc (l1 l2 l3 l4:Lst):
   append l1 (append l2 (append l3 l4)) = 
   append (append(append l1 l2) l3) l4.
   Proof.
-  rewrite appendAssoc. rewrite appendAssoc. reflexivity.
+  (* your proof here *)
   Defined.
   
   Definition lengthLemma (l1 l2:Lst) (x:ThreeElementSet):
   length (append l1 (append (cons x nil) l2)) =
   succ ( length (append l1 l2)).
   Proof.
-  simpl. induction l1.
-  - simpl. reflexivity.
-  - simpl. rewrite IHl1. reflexivity.
+  (* your proof here *)
   Defined.
 
 End lemmasExercises.

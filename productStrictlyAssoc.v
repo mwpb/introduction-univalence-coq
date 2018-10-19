@@ -10,6 +10,14 @@ Require Import propositionsSets.
 Section prodStrictlyAssoc.
 Search prod.
 
+(*  the proof of the following Lemma is at 
+    the end of equivalences.v. *)
+Definition halfAdjointEquivImpliesContractible {X Y:Type}
+  (f:X->Y):
+  HalfAdjointEquiv f -> IsContractibleMap f.
+Proof.
+Admitted.
+
 Definition associator (X Y Z:Type):
   (prod (prod X Y) Z) -> (prod X (prod Y Z)).
 Proof.
@@ -34,6 +42,8 @@ Definition assocIsInv2 {X Y Z:Type} (v:prod (prod X Y) Z):
 Proof.
 (* your proof here *)
 Defined.
+
+
 
 Definition associatorIsEquiv {X Y Z:Type}:
   IsContractibleMap (associator X Y Z).

@@ -66,14 +66,10 @@ End functionExamples.
 Section inductionExercises.
 
   Inductive FourElementSet:=
-  |zero4
-  |one4
-  |two4
-  |three4.
-
+  (* define four element set *).
+  
   Inductive Nat:=
-  |base
-  |succ (n:Nat).
+  (* define natural number induction *).
 
 End inductionExercises.
 
@@ -82,34 +78,26 @@ Section functionExercises.
   Definition constantAtZero4 (x:FourElementSet):
     FourElementSet.
   Proof.
-    apply zero4.
+    (* define the function x|->0*)
   Defined.
 
   Definition doubleModThree (x:ThreeElementSet):
     ThreeElementSet.
   Proof.
-    induction x.
-    - apply zero.
-    - apply two.
-    - apply one.
+    (* define the function x|->2x (mod 3)*)
   Defined.
 
   Definition fourModThree (x:FourElementSet):
     ThreeElementSet.
   Proof.
-    induction x.
-    - apply zero.
-    - apply one.
-    - apply two.
-    - apply zero.
+    (* define the function x|->x( mod 3) 
+       that lands in ThreeElementSet *)
   Defined.
 
   Fixpoint length (l:Lst):
     Nat.
   Proof.
-    destruct l.
-    - apply base.
-    - apply (succ (length l)).
+    (* return the length of l *)
   Defined.
 
 End functionExercises.
