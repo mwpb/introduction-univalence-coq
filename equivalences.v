@@ -40,14 +40,26 @@ Defined.
 Definition dependentProps {X:Type} (B:X->Type):
 (forall x:X, IsProp(B x)) -> IsProp(forall x:X,B x).
 Proof.
-(* your proof here *)
+  intros H.
+  apply isProp.
+  intros p q.
+  apply funcExt.
+  intro x.
+  apply (H x).
 Defined.
 
 Definition isContractibleMapIsProp {X Y:Type} (f:X->Y):
   IsProp(IsContractibleMap f).
 Proof.
-(* your proof here - one way is to assert a 
-  statement beginning forall y:Y, ___ *)
+  apply isProp.
+  intros p q.
+  induction p, q.
+  assert (Id H H0).
+  - apply funcExt.
+    intro.
+    apply isContractibleIsProp.
+  - induction X0.
+    apply refl.
 Defined.
 
 End contractibleMaps.
@@ -57,7 +69,11 @@ Section allImplyQinv.
 Definition halfAdjointImpliesQinv {X Y:Type} (f:X->Y):
 HalfAdjointEquiv f -> Qinv f.
 Proof.
-(* your proof here *)
+  intros p.
+  induction p.
+  apply (qinv f g).
+  - apply n.
+  - apply e.
 Defined.
 
 Definition biinvImpliesQinv {X Y:Type} (f:X->Y):
@@ -79,17 +95,25 @@ intro y. induction H. induction (H y).
 induction c. apply x.
 Defined.
 
-Definition invIsSection {X Y:Type} 
-  (f:X->Y) (H:IsContractibleMap f):
-  forall y:Y, Id (f(invOfContractibleMap f H y)) y.
-Proof.
-(* your proof here *)
-Defined.
-
 Definition fibreInclusion {X Y:Type} (f:X->Y) (y:Y):
 Fibre f y -> X.
 Proof.
 intro. induction X0. apply x.
+Defined.
+
+Definition invIsSection {X Y:Type} 
+  (f:X->Y) (H:IsContractibleMap f):
+  forall y:Y, Id (f(invOfContractibleMap f H y)) y.
+Proof.
+  intro y.
+  induction H. simpl.
+  induction (H y).
+  induction c. simpl.
+  apply H1.  
+  (* assert (Id (f (invOfContractibleMap f (isContractibleMap f H) y)) (f x)).
+  - apply appl. simpl.
+    apply .
+  *)
 Defined.
 
 Definition invIsRetraction {X Y:Type} 
@@ -107,7 +131,10 @@ Defined.
 Definition isContractibleMapImpliesQinv {X Y:Type} (f:X->Y):
 IsContractibleMap f -> Qinv f.
 Proof.
-(* your proof here *)
+ intro H.
+ apply (qinv f (invOfContractibleMap f H)).
+ - intro x. apply invIsRetraction.
+ - intro y. apply invIsSection.
 Defined.
 
 End allImplyQinv.
@@ -119,6 +146,11 @@ Definition idInFibres {X Y:Type}
   (gamma:Id x0 x1) (K: Id (comp (appl f gamma) H1) H0):
   Id (fibre f y x0 H0) (fibre f y x1 H1).
 Proof.
+  induction gamma.
+  assert (Id H0 H1).
+  - induction K.
+  induction K.
+  induction H1.
 (* your proof here *)
 Defined.
 
